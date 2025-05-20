@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Fraunces&display=swap');
 
+:root {
+    --color-bg: hsl(30, 38%, 92%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-primary: hsl(158, 36%, 37%);
+    --color-primary-dark: hsl(158, 42%, 18%);
+    --color-text-muted: hsl(228, 12%, 48%);
+}
 
 * {
     margin: 0;
@@ -9,20 +15,25 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
-    background-color: hsl(30, 38%, 92%);
+    background-color: var(--color-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
     height: 100vh;
+    padding: 0;
 }
-
 
 .card {
     display: flex;
-    width: 550px;
-    border-radius: 12px;
+    flex-direction: row;
+    width: clamp(20rem, 50vw, 34.375rem);
+    border-radius: 0.75rem;
     overflow: hidden;
 }
 
@@ -31,103 +42,92 @@ body {
     width: 50%;
 }
 
-
 .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    max-width: 300px;
+    max-width: 18.75rem;
 }
-
 
 .specs {
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--color-white);
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 30px;
+    gap: 0.9375rem;
+    padding: 1.875rem;
 }
-
-
 
 .category,
 .desc {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    color: hsl(228, 12%, 48%);
+    color: var(--color-text-muted);
     line-height: 1.6;
 }
-
 
 .specs h1 {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 35px;
+    font-size: clamp(1.75rem, 4vw, 2.1875rem);
     line-height: 1;
 }
 
-
 .price {
     display: flex;
-    gap: 18px;
+    gap: 1.125rem;
     font-family: 'Fraunces', serif;
     font-weight: 700;
     align-items: center;
 }
 
 .new {
-    color: hsl(158, 36%, 37%);
-    font-size: 35px;
+    color: var(--color-primary);
+    font-size: clamp(1.75rem, 4vw, 2.1875rem);
 }
 
 .old {
-    color: hsl(228, 12%, 48%);
+    color: var(--color-text-muted);
     text-decoration: line-through;
 }
 
 .sale {
-    background-color: hsl(158, 36%, 37%);
-    padding: 15px 10px;
+    background-color: var(--color-primary);
+    padding: 0.9375rem 0.625rem;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 0.625rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    font-size: 1rem;
 }
 
-
 .sale .icon {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
 }
 
 .sale:hover {
-    background-color: hsl(158, 42%, 18%);
+    background-color: var(--color-primary-dark);
 }
 
-
-
-@media (max-width: 600px) {
+@media (max-width: 37.5em) {
     body {
-        padding: 20px 0;
+        padding: 1.25rem 0;
         height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
+        font-size: clamp(0.75rem, 1vw, 0.875rem);
     }
 
     .card {
         flex-direction: column;
         width: 95%;
-        width: 290px;
+        width: 18.125rem;
         margin: 0 auto;
-        border-radius: 12px;
+        border-radius: 0.75rem;
         overflow: hidden;
     }
 
@@ -144,17 +144,16 @@ body {
     }
 
     .specs {
-        padding: 20px;
-        gap: 10px;
+        padding: 1.25rem;
+        gap: 0.625rem;
     }
 
     .specs h1,
     .price .new {
-        font-size: 25px;
+        font-size: clamp(1.25rem, 5vw, 1.5625rem);
     }
 
     .sale {
-        padding: 13px 15px;
+        padding: 0.8125rem 0.9375rem;
     }
-
 }
